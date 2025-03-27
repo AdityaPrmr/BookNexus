@@ -49,8 +49,8 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("/GetPdf")]
-        //[ServiceFilter(typeof(LoggingFilter))]
-        //[Authorize] 
+        [ServiceFilter(typeof(LoggingFilter))]
+        [Authorize] 
         public async Task<IActionResult> GetPdf([FromQuery] string path)
         {
             if (string.IsNullOrEmpty(path))
