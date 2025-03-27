@@ -1,0 +1,14 @@
+﻿services:
+	- type: web
+	name: BookStore
+	env: docker
+	plan: free
+	region: oregon
+	branch: main
+	dockerfilePath: ./BookStore/Dockerfile
+	buildCommand: ""
+	startCommand: ""
+	autoDeploy: true
+	envVars:
+	- key: ASPNETCORE_ENVIRONMENT
+	value: Production
