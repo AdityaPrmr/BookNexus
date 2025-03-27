@@ -58,7 +58,7 @@ namespace BookStore.Controllers
             path = path.Replace("\\", "/");
 
             // Combine paths properly
-            var fullPath = "E:/Proggraming Practice/WorkAreaAspDotNetCore/BookStore/BookStore/wwwroot" + path;
+            var fullPath = "/BookStore/wwwroot" + path;
 
             if (!System.IO.File.Exists(fullPath))
                 return NotFound();
