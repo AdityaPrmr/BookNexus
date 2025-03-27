@@ -12,10 +12,12 @@ namespace BookStore.Controllers
     public class HomeController : Controller
     {
         private readonly _dbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public HomeController(_dbContext context)
+        public HomeController(_dbContext context,IWebHostEnvironment env)
         {
             _context = context;
+             _env = env;
         }
 
         [Route("/")]
@@ -58,7 +60,7 @@ namespace BookStore.Controllers
             path = path.Replace("\\", "/");
 
             // Combine paths properly
-            var fullPath = _env.WebRootPath, path.TrimStart('/');
+            var fullPath = Path.Combine(_env.WebRootPath, path.TrimStart('/'));
 
             if (!System.IO.File.Exists(fullPath))
                 return NotFound();
